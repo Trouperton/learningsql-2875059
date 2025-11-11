@@ -1,3 +1,5 @@
+/* ========== Chapter 1 ========== */
+
 --SELECT * FROM people;
 --SELECT 'Hello, World!';
 --SELECT first_name FROM people;
@@ -50,3 +52,22 @@
 --SELECT * FROM people
 --  WHERE state_code = 'CO'
 --  ORDER BY team, shirt_or_hat, last_name DESC;
+
+/* ========== Chapter 2 ========== */
+
+/*SELECT people.first_name, people.state_code, states.division
+  FROM people
+  JOIN states ON people.state_code = states.state_abbrev;*/
+
+/*SELECT *
+  FROM people
+  JOIN states ON people.state_code = states.state_abbrev
+  WHERE people.first_name LIKE 'J%' AND states.region = 'South';*/
+
+/*SELECT ppl.first_name, st.state_name
+  FROM people ppl, states st
+  WHERE ppl.state_code = st.state_abbrev;*/
+
+SELECT *
+  FROM people
+  RIGHT JOIN states ON people.state_code = states.state_abbrev;
