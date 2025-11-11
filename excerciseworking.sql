@@ -68,6 +68,24 @@
   FROM people ppl, states st
   WHERE ppl.state_code = st.state_abbrev;*/
 
-SELECT *
+/*SELECT *
   FROM people
-  RIGHT JOIN states ON people.state_code = states.state_abbrev;
+  RIGHT JOIN states ON people.state_code = states.state_abbrev;*/
+
+/*SELECT DISTINCT(people.state_code), states.state_abbrev
+  FROM states
+  LEFT JOIN people ON people.state_code = states.state_abbrev
+  ORDER BY people.state_code;*/
+
+/*SELECT first_name, COUNT(first_name)
+  FROM people
+  GROUP BY first_name;*/
+
+/*SELECT state_code, quiz_points, COUNT(quiz_points)
+  FROM people
+  GROUP BY state_code, quiz_points;*/
+
+/*SELECT states.region, people.team, COUNT(people.team)
+  FROM states
+  JOIN people ON people.state_code = states.state_abbrev
+  GROUP BY states.region, people.team;*/
