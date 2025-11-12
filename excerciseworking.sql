@@ -1,10 +1,11 @@
 /* ========== Chapter 1 ========== */
 
---SELECT * FROM people;
---SELECT 'Hello, World!';
---SELECT first_name FROM people;
---SELECT last_name FROM people;
---SELECT first_name, last_name FROM people;
+-- Basic Queries
+  --SELECT * FROM people;
+  --SELECT 'Hello, World!';
+  --SELECT first_name FROM people;
+  --SELECT last_name FROM people;
+  --SELECT first_name, last_name FROM people;
 
 --SELECT * FROM people WHERE state_code = 'CA';
 --SELECT * FROM people WHERE shirt_or_hat = 'shirt';
@@ -89,3 +90,66 @@
   FROM states
   JOIN people ON people.state_code = states.state_abbrev
   GROUP BY states.region, people.team;*/
+
+/* ========== Chapter 3 ========== */
+
+-- Arithmetics
+  /*SELECT 4 + 2;
+  SELECT 1 / 3.0;
+  SELECT 3 < 2;*/
+
+/*SELECT first_name, quiz_points
+  FROM people
+  WHERE quiz_points >= 70
+  ORDER BY quiz_points;*/
+
+--SELECT MAX(quiz_points), MIN(quiz_points) FROM people;
+
+--SELECT SUM(quiz_points) FROM people;
+
+/*SELECT team, COUNT(*), SUM(quiz_points), AVG(quiz_points) --SUM(quiz_points)/COUNT(*)
+  FROM people
+  GROUP BY team;*/
+
+/*SELECT first_name, last_name, quiz_points
+  FROM people
+  WHERE quiz_points = (SELECT MAX(quiz_points) FROM people);*/
+
+/*SELECT *
+  FROM people
+  WHERE state_code = (
+    SELECT state_abbrev FROM states WHERE state_name = 'Minnesota'
+    );*/
+
+/*SELECT LOWER(first_name), UPPER(last_name)
+  FROM people;*/
+
+/*SELECT first_name, SUBSTR(last_name, 1, 5)
+  FROM people;*/
+
+/*SELECT first_name, SUBSTR(last_name, 2)
+  FROM people;*/
+
+/*SELECT first_name, SUBSTR(last_name, -3)
+  FROM people;*/
+
+/*SELECT REPLACE(first_name, "a", "-")
+  FROM people;*/
+
+/*SELECT quiz_points
+  FROM people
+  ORDER BY CAST(quiz_points AS CHAR)*/
+
+/*SELECT MAX(CAST(quiz_points AS CHAR))
+  FROM people;*/
+
+/*SELECT first_name AS firstname, UPPER(last_name) AS surname
+  from people
+  WHERE firstname = 'Laura';*/
+
+-- Practice question for this chapter:
+/*SELECT states.state_name AS state, MAX(people.quiz_points) AS maxpoints, AVG(people.quiz_points) AS avgpoints
+  FROM people
+  JOIN states ON people.state_code = states.state_abbrev
+  GROUP BY state
+  ORDER BY avgpoints DESC;*/
